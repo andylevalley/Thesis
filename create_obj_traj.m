@@ -3,16 +3,16 @@ clear all
 
 omega = 7.291e-5;
 % 
-% num = 4;
-% ae = [5,25,45,65];
-% xd = [0,0,0,0];
-% yd = [0,0,0,0];
-% beta = [-pi/2,-pi/2,-pi/2,-pi/2];
-% 
-% for n = 1:num
-%     [R,V] = roe2hcw(omega,ae(n),xd(n),yd(n),beta(n));
-%     obj_state(n,1:6) = [R,V];
-% end
+num = 4;
+ae = [20,20,20,20];
+xd = [0,0,0,0];
+yd = [0,0,0,0];
+beta = [0,pi/2,pi,-pi/2];
+
+for n = 1:num
+    [R,V] = roe2hcw(omega,ae(n),xd(n),yd(n),beta(n));
+    obj_state(n,1:6) = [R,V];
+end
 
 num = 4;
 n = 1;
@@ -27,11 +27,11 @@ obj_state =[30 0 0 0 0 0;
         
         
 
-% for i = 1:num
-%     [x_drift,v_drift] = CWHPropagator(obj_state(i,1:3)',obj_state(i,4:6)',omega,1:1:60*60*14);
-%     obj_traj{n} = [x_drift(1:3,:);v_drift(1:3,:)];
-%     n = n+1;
-% end
+for i = 1:num
+    [x_drift,v_drift] = CWHPropagator(obj_state(i,1:3)',obj_state(i,4:6)',omega,1:1:60*60*24*10);
+    obj_traj{n} = [x_drift(1:3,:);v_drift(1:3,:)];
+    n = n+1;
+end
 
 
 for i = 1:num

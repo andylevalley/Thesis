@@ -142,7 +142,7 @@ for i = 2:2:10
 end
         
 
-vidObj1 = VideoWriter('Plot_Trajectory2.mp4','MPEG-4');
+vidObj1 = VideoWriter('PlotTrajectory.mp4','MPEG-4');
 vidObj1.FrameRate = 50;  % Default 30
 vidObj1.Quality = 100;    % Default 75
 open(vidObj1);
@@ -166,12 +166,12 @@ for i = 1:100:length(plot_traj)
     grid on;
     xl = xlabel('y (km)');
     yl = ylabel('x (km)');
-    tt = title('4 Waypoint Visit with Sunlight Constraint');
-    axis([-75 75 -75 75])
+    tt = title('4 objects in NMC visit with sunlight constraints');
+    axis([-30 30 -20 20])
     set(gcf,'color','w')
     
     drawnow
     Frame = getframe(gcf);
     writeVideo(vidObj1,Frame);
 end
-        
+close(vidObj1)        
