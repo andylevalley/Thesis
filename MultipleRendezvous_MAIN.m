@@ -5,21 +5,21 @@ clear all
 %% Tunable Parameters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Scenario Parameters
-t_total = 60*60*24;
-num_objects = 4;
+t_total = 60*60*24*3;
+num_objects = 2;
 omega = 7.291e-5; % mean motion (rad/sec)
 sat_state = [0 0 0 0 0 0]; % starting state of active sat
-load('obj_traj_NMC4')
-load('SunVec_LVLH')
+load('obj_traj_NMC');
+load('SunVec_LVLH');
 
 % Optimization Parameters
 lb_init = 0;
-lb_loiter = 60*60;
+lb_loiter = 60*60*24;
 lb_transfer = 60*30;
 
-ub_init = t_total/6;
-ub_loiter = t_total/6;
-ub_transfer = t_total/6;
+ub_init = 60*60;
+ub_loiter = t_total/3;
+ub_transfer = t_total/3;
 
 Popsize = 100;
 EliteCount = ceil(0.1*Popsize);

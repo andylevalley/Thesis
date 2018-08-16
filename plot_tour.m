@@ -106,18 +106,18 @@ clock = clock + t_times(n) + t_times(n+1);
 
 %% Static Plot
 
-% for i = 1:5
-%     plot(obj_traj{i}(2,:),obj_traj{i}(1,:),'Color','blue');
+for i = 1:2
+    plot(obj_traj{i}(2,:),obj_traj{i}(1,:),'Color','blue');
+    hold on
+end
+
+for i = 1:length(t_times)
+%     h = quiver(sat_traj{i}(2,:),sat_traj{i}(1,:),sat_traj{i}(4,:),sat_traj{i}(3,:),0.5,'Color','k');
+%     h.Head.LineStyle = 'solid';
 %     hold on
-% end
-% 
-% for i = 1:length(t_times)
-% %     h = quiver(sat_traj{i}(2,:),sat_traj{i}(1,:),sat_traj{i}(4,:),sat_traj{i}(3,:),0.5,'Color','k');
-% %     h.Head.LineStyle = 'solid';
-% %     hold on
-%     plot(sat_traj{i}(2,:),sat_traj{i}(1,:),'Color','r');
-%     hold on
-% end
+    plot(sat_traj{i}(2,:),sat_traj{i}(1,:),'Color','r');
+    hold on
+end
 % 
 % 
 % 
@@ -130,7 +130,7 @@ clock = clock + t_times(n) + t_times(n+1);
 n = 1;
 plot_traj = [];
 
-for i = 2:2:10
+for i = 2:2:6
         x = interp1(sat_traj{i}(5,:),sat_traj{i}(1,:),1:1:t_times(i));
         y = interp1(sat_traj{i}(5,:),sat_traj{i}(2,:),1:1:t_times(i));
         xdot = interp1(sat_traj{i}(5,:),sat_traj{i}(3,:),1:1:t_times(i));
@@ -167,7 +167,7 @@ for i = 1:100:length(plot_traj)
     xl = xlabel('y (km)');
     yl = ylabel('x (km)');
     tt = title('4 objects in NMC visit with sunlight constraints');
-    axis([-30 30 -20 20])
+    axis([-25 25 -25 25])
     set(gcf,'color','w')
     
     drawnow

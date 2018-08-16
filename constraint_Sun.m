@@ -53,7 +53,7 @@ end
 %     mean_theta(4) - 180*pi/180];
 c = [sum(dvar(num_objects+1:end))- (t_total);
     -(isequal(A,B))+1;
-    -mean_theta(1) + 90*pi/180;
-    -mean_theta(4) + 90*pi/180];
+    mean_theta(1) + 15*pi/180;
+    mean_theta(2) + 15*pi/180];
 ceq = [];
 end
